@@ -1,46 +1,75 @@
-body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5;}
-.container {max-width:1200px; margin:auto; padding:10px;}
-header {text-align:center; background:#4CAF50; color:white; padding:10px;}
-.salary-bank input {width:130px; margin:0 10px;}
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; }
+.container { max-width:1200px; margin:auto; padding:10px; }
+header { text-align:center; background:#4CAF50; color:white; padding:10px; }
+.salary-bank { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+.salary-bank input { width:130px; }
 
-.tabs {text-align:center; margin:10px 0;}
-.tab-btn {padding:8px 12px; margin:0 5px; cursor:pointer; border:none; border-radius:5px; background: linear-gradient(120deg,#a0d8f1,#ffffff); color:#333; transition:0.3s;}
-.tab-btn.active {background:#4CAF50; color:white;}
+button { padding:8px 12px; margin-top:10px; background:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer; }
+button:hover { background:#45a049; }
+.blue-btn { background:#2196F3 !important; }
+.blue-btn:hover { background:#1976D2 !important; }
+.mini-btn { padding:6px 10px; }
 
-.tab-content {display:none; background:white; padding:15px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px;}
-.tab-content.active {display:block;}
+.tabs { text-align:center; margin:10px 0; }
+.tab-btn { padding:8px 12px; margin:0 5px; cursor:pointer; border:none; border-radius:5px; background:linear-gradient(120deg,#a0d8f1,#ffffff); color:#333; transition:0.3s; }
+.tab-btn.active { background:#4CAF50; color:white; }
 
-.center-button {text-align:center; margin-top:10px;}
-.center-text {text-align:center;}
+.tab-content { display:none; background:white; padding:15px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+.tab-content.active { display:block; }
 
-.expense-inputs, .transaction-inputs, .investment-inputs, .credit-inputs {display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px;}
-.expense-inputs input, .transaction-inputs input, select, .investment-inputs input, .credit-inputs input {width:80px;}
+.center-button { text-align:center; margin-top:10px; }
+.center-text { text-align:center; }
 
-button {padding:8px 12px; margin-top:10px; background:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;}
-button:hover {background:#45a049;}
+.expense-inputs, .transaction-inputs, .investment-inputs, .credit-inputs {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px;
+}
+.expense-inputs input, .transaction-inputs input, select, .investment-inputs input, .credit-inputs input { width:120px; }
+.expense-inputs label { display:flex; flex-direction:column; align-items:flex-start; }
 
-.month-nav {display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
-#calendar {display:grid; grid-template-columns:repeat(7,1fr); grid-gap:5px;}
-.calendar-day {background:#e0e0e0; padding:15px; text-align:center; border-radius:5px; cursor:pointer;}
-.calendar-day:hover {background:#c8e6c9;}
-.selected {background:#81C784 !important; color:white;}
-.low {background:#C8E6C9;}      /* green */
-.medium {background:#FFF9C4;}   /* yellow */
-.high {background:#FFCDD2;}     /* red */
+.inline-other { flex-direction:row !important; align-items:center !important; gap:8px; }
+.inline-other input[type="text"] { width:180px; }
+.inline-other input[type="number"] { width:100px; }
+#other-list { list-style:none; padding:0; margin-top:10px; text-align:center; }
+#other-list li { margin:3px 0; background:#f0f0f0; padding:5px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:8px; }
 
-.totals {text-align:center; margin-top:15px; display:flex; justify-content:center; gap:20px;}
-.totals span {font-weight:bold;}
-.red {color:red;}
-.green {color:green;}
+.month-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.nav-btn { background:#777; }
+.nav-btn:hover { background:#555; }
 
-table {width:100%; border-collapse:collapse; margin-top:10px;}
-th, td {border:1px solid #ccc; padding:8px; text-align:center;}
-th {background:#f0f0f0;}
-.pending {color:red;}
-.completed {color:green;}
-table button {margin: 0 5px;}
+.calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:5px; }
+.calendar-cell { text-align:center; padding:10px; border-radius:5px; background:#fafafa; font-weight:bold; }
+.calendar-day { background:#e0e0e0; padding:15px; text-align:center; border-radius:5px; cursor:pointer; }
+.calendar-day:hover { background:#c8e6c9; }
+.selected { background:#81C784 !important; color:white; }
+
+.low { background:#C8E6C9; }
+.medium { background:#FFF9C4; }
+.high { background:#FFCDD2; }
+
+.totals { text-align:center; margin-top:15px; display:flex; justify-content:center; flex-wrap:wrap; gap:20px; }
+.totals span { font-weight:bold; }
+.red { color:red; }
+.green { color:green; }
+
+.table-container { overflow-x:auto; }
+.styled-table { width:100%; border-collapse:collapse; margin-top:10px; }
+.styled-table th, .styled-table td { border:1px solid #ccc; padding:8px; text-align:center; }
+.styled-table th { background:#f0f0f0; }
+.styled-table button { margin:0 5px; }
+.highlight { background:#FFF3CD !important; transition:background 0.6s ease; }
+
+.transaction-table tbody tr:nth-child(odd) { background:#E3F2FD; }
+.investment-table tbody tr:nth-child(odd) { background:#E8F5E9; }
+.credit-table tbody tr:nth-child(odd) { background:#FFF3E0; }
+.transaction-table tbody tr:hover,
+.investment-table tbody tr:hover,
+.credit-table tbody tr:hover { background:#FFF9C4; }
 
 @media(max-width:768px) {
-  .expense-inputs, .transaction-inputs, .investment-inputs, .credit-inputs {flex-direction:column; align-items:center;}
-  table, th, td {font-size:14px;}
+  .expense-inputs, .transaction-inputs, .investment-inputs, .credit-inputs { flex-direction:column; align-items:center; }
+  .expense-inputs input, .transaction-inputs input, select, .investment-inputs input, .credit-inputs input { width:100%; }
+  .inline-other { width:100%; flex-wrap:wrap; }
+  .inline-other input[type="text"], .inline-other input[type="number"] { flex:1; }
+  .calendar-day { padding:12px; }
+  .styled-table th, .styled-table td { font-size:14px; }
 }
